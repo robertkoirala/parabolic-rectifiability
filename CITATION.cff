@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Please cite the tagged version of this software when using the formal library."
+title: "Parabolic rectifiability"
+type: software
+authors:
+  - family-names: Koirala
+    given-names: Robert
+license: Apache-2.0
+repository-code: "https://github.com/robertkoirala/parabolic-rectifiability"

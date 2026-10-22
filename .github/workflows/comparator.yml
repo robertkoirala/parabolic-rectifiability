@@ -1,0 +1,59 @@
+name: Comparator
+
+# Checks with leanprover/comparator that the library proves exactly the statements of
+# verification/Spec.lean over the same definitions, using only propext, Classical.choice
+# and Quot.sound, and that the proofs are accepted by Lean's kernel and by nanoda.
+# Runs after a successful "Build and axiom audit" run and reuses its build.
+
+on:
+  workflow_run:
+    workflows: ["Build and axiom audit"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  comparator:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          sudo docker image prune --all --force > /dev/null
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Lean and the Mathlib cache
+        uses: leanprover/lean-action@v1
+        with:
+          build: false
+          use-mathlib-cache: true
+
+      - name: Restore the build
+        uses: actions/cache/restore@v4
+        with:
+          path: .lake/build
+          key: lake-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.event.workflow_run.head_sha || github.sha }}
+          restore-keys: lake-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+
+      - name: Install the Comparator sandbox
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y bubblewrap
+          # Ubuntu restricts unprivileged user namespaces, which bubblewrap needs.
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+          # nanoda_bin ships with the Lean toolchain.
+          dirname "$(elan which lean)" >> "$GITHUB_PATH"
+
+      - name: Comparator with nanoda (sandboxed)
+        run: lake comparator

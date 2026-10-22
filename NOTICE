@@ -1,0 +1,8 @@
+Parabolic rectifiability
+Copyright 2026 Robert Koirala
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The library depends on Lean 4 and mathlib at the revisions recorded in
+lean-toolchain and lake-manifest.json. These are fetched separately at build
+time and remain under their own licenses.

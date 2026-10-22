@@ -1,0 +1,17 @@
+name = "parabolicRectifiability"
+version = "0.1.0"
+defaultTargets = ["ParabolicRectifiability"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "105b9b1ce126e77b467aac6f6ba36b510ac57368"
+
+[[lean_lib]]
+name = "ParabolicRectifiability"
+allowNonModules = true
+
+[[lean_lib]]
+name = "Spec"
+srcDir = "verification"
+allowNonModules = true
