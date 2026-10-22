@@ -73,7 +73,7 @@ The identities $`B_2=\beta^2`$ and $`S_2=T_2=S`$ are theorems, not definitions.
 A *horizontal graph* of slope at most $`\varepsilon`$ is given over an arbitrary
 subset of a spatial $`k`$-plane $`U`$: a normal displacement $`g:A\to U^\perp`$ and a
 time function $`h:A\to\mathbb R`$ with
-$`\max\{\lVert g(u)-g(v)\rVert,\sqrt{|h(u)-h(v)|}\}\le\varepsilon\lVert u-v\rVert`$
+$`\max\lbrace\lVert g(u)-g(v)\rVert,\sqrt{|h(u)-h(v)|}\rbrace\le\varepsilon\lVert u-v\rVert`$
 (`HorizontalGraph`). A *regular vertical graph* is a full space-time graph over
 the base $`W\times\mathbb R`$, $`\dim W=k-2`$: $`(u,t)\mapsto(a+u+G(u,t),t)`$ with $`G`$
 normal-valued, parabolic Lipschitz, and with the half-time derivative
@@ -86,10 +86,10 @@ smaller *constructed* class $`G=c+H`$ with $`H`$ compactly supported. A proved
 inclusion relates them; see [theorems.md](theorems.md) for which statement uses
 which.
 
-A set $`K`$ has a *typed graph cover at tolerance $`\varepsilon`$* if countably many
+A set $`K`$ has a *typed graph cover* at tolerance $`\varepsilon`$ if countably many
 graphs of the type, with slope or norm at most $`\varepsilon`$, cover $`K`$ up to a
 set of zero $`\mathcal H_P^k`$ outer measure. A measure $`\mu`$ is *regularly
-rectifiable of type $`T`$* (`IsRegularlyRectifiableMeasure T k μ`) if
+rectifiable* of type $`T`$ (`IsRegularlyRectifiableMeasure T k μ`) if
 $`\mu\ll\mathcal H_P^k`$ and $`\mu`$ is carried by countably many type-$`T`$ graphs,
 each with its own finite slope or norm.
 
@@ -148,7 +148,7 @@ below), $`n\ge1`$ and $`1\le k\le n+2`$.
 4. **Quantitative characterization.**
    `ParabolicRectifiability.QuantitativeCharacterization.quantitative_characterization`.
    For an $`A`$-Ahlfors regular measure with unbounded support, the Carleson
-   energy $`M_\beta=\sup R^{-k}\int_{P(a,R)}S^R\,d\mu`$ is finite if and only if
+   energy $`M_\beta=\sup R^{-k}\int_{P(a,R)}S^R\thinspace d\mu`$ is finite if and only if
    $`\mu`$ is quantitatively rectifiable: absolutely continuous with respect to
    $`\mathcal H_P^k`$ and admitting, at every root $`P(a,R)`$ centered on the
    support, a regular mixed covering with packing constants $`K`$. The covering

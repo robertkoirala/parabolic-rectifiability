@@ -27,31 +27,31 @@ versions of the support theorem with their exponent restrictions.
 
 ## Setting
 
-Parabolic space is $`\mathbb R^n\times\mathbb R`$`, `$`n\ge1`$, with the parabolic metric and dilations
+Parabolic space is $`\mathbb R^n\times\mathbb R`$, $`n\ge1`$, with the parabolic metric and dilations
 
 ```math
 d_P\big((x,t),(y,s)\big)=\max\big\{|x-y|,\ |t-s|^{1/2}\big\},\qquad \delta_r(x,t)=(rx,\,r^2t).
 ```
 
-$`P(z,r)`$` is the open `$`d_P`$`-ball and `$`\mathcal H^k_P`$` the `$`k`$-dimensional Hausdorff measure of
-$`d_P`$`, for an integer `$`1\le k\le n+2`$`. All measures `$`\mu`$ are nonnegative and locally Radon
+$`P(z,r)`$ is the open $`d_P`$-ball and $`\mathcal H^k_P`$ the $`k`$-dimensional Hausdorff measure of
+$`d_P`$, for an integer $`1\le k\le n+2`$. All measures $`\mu`$ are nonnegative and locally Radon
 (finite on compact sets and inner regular).
 
 **Model planes.** There are two families of $`k`$-dimensional planes:
 
-- $`\mathcal H`$` (horizontal): `$`V\times\{t\}`$` with `$`V`$` an affine `$`k`$`-plane of `$`\mathbb R^n`$`; nonempty for `$`1\le k\le n`$;
-- $`\mathcal V`$` (vertical): `$`W\times\mathbb R`$` with `$`W`$` an affine `$`(k-2)`$`-plane of `$`\mathbb R^n`$`; nonempty for `$`2\le k\le n+2`$.
+- $`\mathcal H`$ (horizontal): $`V\times\lbrace t\rbrace`$ with $`V`$ an affine $`k`$-plane of $`\mathbb R^n`$; nonempty for $`1\le k\le n`$;
+- $`\mathcal V`$ (vertical): $`W\times\mathbb R`$ with $`W`$ an affine $`(k-2)`$-plane of $`\mathbb R^n`$; nonempty for $`2\le k\le n+2`$.
 
-A family $`T`$` is one of `$`\mathcal H`$`, `$`\mathcal V`$`, `$`\mathcal H\cup\mathcal V`$; a *given* family is one
+A family $`T`$ is one of $`\mathcal H`$, $`\mathcal V`$, $`\mathcal H\cup\mathcal V`$; a *given* family is one
 that is nonempty for the dimension $`k`$ under consideration.
 
-**Beta numbers and square energy.** For $`z\in\mathbb R^n\times\mathbb R`$` and `$`r>0`$,
+**Beta numbers and square energy.** For $`z\in\mathbb R^n\times\mathbb R`$ and $`r>0`$,
 
 ```math
 \beta_{\mu,T}(z,r)^2=\frac{1}{r^{k+2}}\inf_{L\in T}\int_{P(z,r)}d_P(w,L)^2\,d\mu(w),
 ```
 
-normalized by $`r^{k+2}`$`, not by `$`\mu(P(z,r))`$`. The square energy up to scale `$`R>0`$ is
+normalized by $`r^{k+2}`$, not by $`\mu(P(z,r))`$. The square energy up to scale $`R>0`$ is
 
 ```math
 S^R_{\mu,T}(z)=\int_0^R\beta_{\mu,T}(z,r)^2\,\frac{dr}{r}\ \in[0,\infty].
@@ -59,20 +59,30 @@ S^R_{\mu,T}(z)=\int_0^R\beta_{\mu,T}(z,r)^2\,\frac{dr}{r}\ \in[0,\infty].
 
 The superscript $`R`$ is the scale endpoint, not an exponent.
 
-**Densities.** The upper and lower $`k`$`-densities of `$`\mu`$` at `$`z`$ are
+**Densities.** The upper and lower $`k`$-densities of $`\mu`$ at $`z`$ are
 
 ```math
 \Theta^{k,*}(\mu,z)=\limsup_{r\to0}\frac{\mu(P(z,r))}{r^k},\qquad
 \Theta^{k}_{*}(\mu,z)=\liminf_{r\to0}\frac{\mu(P(z,r))}{r^k}.
 ```
 
-**Graphs.** A horizontal graph of slope $`\varepsilon`$ is the graph, over a subset of a horizontal
-plane, of a normal displacement $`f`$` and a time `$`\tau`$ with
-$`\max\{|f(u)-f(v)|,\,|\tau(u)-\tau(v)|^{1/2}\}\le\varepsilon|u-v|`$. A regular vertical graph is the
-graph, over a vertical plane $`W\times\mathbb R`$, of a parabolic Lipschitz map whose half-time
-derivative $`\partial_t^{1/2}`$ lies in parabolic BMO, with Lipschitz constant plus BMO norm at most
-$`\varepsilon`$. These graph classes, and the resulting notions of horizontal and regular vertical
-rectifiability, are part of the Lean definitions; see [docs/definitions.md](docs/definitions.md).
+**Graphs.** Let $`a\in\mathbb R^n`$ and let $`V,W\subset\mathbb R^n`$ be linear subspaces with orthogonal
+complements $`V^\perp,W^\perp`$.
+
+- A *horizontal graph* of slope $`\varepsilon`$ over $`V`$, with $`\dim V=k`$, is a set
+  $`\{(a+u+f(u),\ \tau(u)) : u\in D\}`$, where $`D\subset V`$ is arbitrary and the maps
+  $`f:D\to V^\perp`$ (spatial displacement) and $`\tau:D\to\mathbb R`$ (time) satisfy
+  $`\max\{|f(u)-f(v)|,\ |\tau(u)-\tau(v)|^{1/2}\}\le\varepsilon|u-v|`$ for all $`u,v\in D`$.
+- A *regular vertical graph* of norm $`\varepsilon`$ over $`W`$, with $`\dim W=k-2`$, is a set
+  $`\{(a+w+G(w,t),\ t) : (w,t)\in W\times\mathbb R\}`$, where $`G:W\times\mathbb R\to W^\perp`$ is
+  $`L`$-Lipschitz for the parabolic metric on $`W\times\mathbb R`$ and its half-time derivative
+  $`\partial_t^{1/2}G`$ lies in parabolic BMO on $`W\times\mathbb R`$ with norm $`B`$, and $`L+B\le\varepsilon`$.
+
+A measure $`\mu`$ is *regularly rectifiable of type* $`T`$ if $`\mu\ll\mathcal H^k_P`$ and $`\mu`$ vanishes
+outside the union of countably many graphs of the type allowed by $`T`$ (horizontal, regular vertical,
+or both), each with its own finite slope or norm. The precise definitions, including the half-time
+derivative and the parabolic BMO norm, are in the Lean source and listed in
+[docs/definitions.md](docs/definitions.md).
 
 ## Formalized results
 
@@ -84,17 +94,17 @@ Unless noted, $`n\ge1`$, $`1\le k\le n+2`$, and $`\mu`$ is a locally Radon measu
 $`\mathbb R^n\times\mathbb R`$.
 
 - [**Parabolic rectifiable Reifenberg theorem**](ParabolicRectifiability/Main.lean#L135): there is
-  $`C(n)`$` such that, if `$`M,\Gamma\ge0`$ and
-  $`\mu\big(P(0,1)\cap\{S^2_{\mu,\mathcal H\cup\mathcal V}>M\}\big)\le\Gamma`$, then
-  $`\mu=\mu_++\mu_{\mathcal H}+\mu_{\mathcal V}`$`, where `$`\mu_{\mathcal H}`$` and `$`\mu_{\mathcal V}`$ are
-  restrictions of $`\mu`$` whose supports are compact and, for every `$`\varepsilon>0`$, covered up to
+  $`C(n)`$ such that, if $`M,\Gamma\ge0`$ and
+  $`\mu\big(P(0,1)\cap\lbrace S^2_{\mu,\mathcal H\cup\mathcal V}>M\rbrace\big)\le\Gamma`$, then
+  $`\mu=\mu_++\mu_{\mathcal H}+\mu_{\mathcal V}`$, where $`\mu_{\mathcal H}`$ and $`\mu_{\mathcal V}`$ are
+  restrictions of $`\mu`$ whose supports are compact and, for every $`\varepsilon>0`$, covered up to
   $`\mathcal H^k_P`$-null sets by countably many horizontal, respectively regular vertical, graphs of
   slope $`\varepsilon`$, with content, packing and tube bounds; the remainder satisfies
   $`\mu_+(P(0,1))\le C(n)M+\Gamma`$. No density, doubling or finite-mass assumption is made.
   Variants: a
   [version uniform over all families](ParabolicRectifiability/Main.lean#L88), the
-  [fixed-family version](ParabolicRectifiability/Main.lean#L157), the [ambient case $`k=n+2`$](ParabolicRectifiability/Main.lean#L164), the
-  [scaled version on any ball $`P(a,R)`$](ParabolicRectifiability/Enhancements/Theorems/ScalingRates.lean#L18),
+  [fixed-family version](ParabolicRectifiability/Main.lean#L157), the [ambient case k = n + 2](ParabolicRectifiability/Main.lean#L164), the
+  [scaled version on any ball P(a, R)](ParabolicRectifiability/Enhancements/Theorems/ScalingRates.lean#L18),
   [graph-domain covers](ParabolicRectifiability/Enhancements/Theorems/GraphDomains.lean#L30),
   [density bounds](ParabolicRectifiability/Enhancements/Theorems/Density.lean#L35), and
   [power](ParabolicRectifiability/Enhancements/Theorems/ScalingRates.lean#L23) and
@@ -114,8 +124,8 @@ $`\mathbb R^n\times\mathbb R`$.
   constants. Related results: [measure approximants](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L22),
   the [local](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L26) and
   [bounded-support](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L30) versions, and the
-  [beta-$`p`$ Carleson comparison](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Characterization.lean#L31).
-- [**Beta-$`p`$ support theorem**](ParabolicRectifiability/BetaP/Theorems/Main.lean#L35): the decomposition holds with
+  [beta-p Carleson comparison](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Characterization.lean#L31).
+- [**Beta-p support theorem**](ParabolicRectifiability/BetaP/Theorems/Main.lean#L35): the decomposition holds with
   remainder $`C(n,p)M^{p/2}R^k+\Gamma`$ for the energy $`S_p`$, $`p\ge2`$, and $`C(n,p)MR^k+\Gamma`$ for
   $`T_p`$, $`0<p\le2`$. Related results: the [complete necessity/sufficiency classification](ParabolicRectifiability/BetaP/Theorems/Corollaries.lean#L145),
   [sharpness of the integrated rates](ParabolicRectifiability/BetaP/Theorems/Corollaries.lean#L57), and
@@ -237,9 +247,9 @@ Robert Koirala.
 
 ## Acknowledgements
 
-The author thanks Yuan Liao and Ziyang Qin for their help with setting up the formalization, and especially
-Yuan Liao for guidance early on in the process, and Bennett Chow and Ruobing Zhang for their
-support and encouragement.
+The author thanks Yuan Liao and Ziyang Qin for their help with setting up the formalization, and
+especially Yuan Liao for his guidance early in the process. The author also thanks Bennett Chow
+and Ruobing Zhang for their support and encouragement.
 
 ## AI disclosure
 
