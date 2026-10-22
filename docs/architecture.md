@@ -34,7 +34,7 @@ Counts are numbers of `.lean` files in the folder, including subfolders.
 ### Analysis
 
 - [`Analysis/`](../ParabolicRectifiability/Analysis) (89): the analytic input for regular vertical graphs. Subfolders:
-  - `HalfTimeDerivative/` (10): the half-time derivative on Schwartz tests and as a distribution, local representation by compactly supported tests, and an $L^2$ inverse representative.
+  - `HalfTimeDerivative/` (10): the half-time derivative on Schwartz tests and as a distribution, local representation by compactly supported tests, and an $`L^2`$ inverse representative.
   - `FractionalKernel/` (11): kernels and multipliers for the half-time derivative, high-pass kernels, moments of frequency cutoffs, and one-dimensional weighted and unweighted estimates.
   - `FourierAffine/` (4): the Fourier-affine square-integral bound, a parabolic smoothing kernel and pointwise control by the affine error.
   - `SmoothCutoff/` (3): the fixed profiles of the smooth parabolic partition and normalized weights.
@@ -51,7 +51,7 @@ Counts are numbers of `.lean` files in the folder, including subfolders.
 
 ### Foundations
 
-- [`Foundations/`](../ParabolicRectifiability/Foundations) (110): definitions and general facts shared by the main results. Top-level files define Ahlfors regularity, the beta-$p$ numbers and energies, sigma-finite Hausdorff carriers and intrinsic sources, lower and upper densities and density conditions, graph-domain covers, general regular graphs, typed covers and the classes of rectifiable sets and measures, the half-time derivative representation, and the bundle of support conclusions. Besides `Statements/`, `Assembly/` and `Theorems/`, the topics in `Proofs/` are the ambient case $k=n+2$ (`Ambient/`), density bridges (`DensityBridges/`), the envelope and Borel properties of graphs (`GraphEnvelope/`), high-pass estimates for BMO functions (`HighPass/`, `HighPassBracket/`), the beta-$p$ laws (`BetaPowLaws/`), covariance under similarities (`Similarity/`) and typed rectifiability under sums (`Rectifiability/`).
+- [`Foundations/`](../ParabolicRectifiability/Foundations) (110): definitions and general facts shared by the main results. Top-level files define Ahlfors regularity, the beta-$`p`$ numbers and energies, sigma-finite Hausdorff carriers and intrinsic sources, lower and upper densities and density conditions, graph-domain covers, general regular graphs, typed covers and the classes of rectifiable sets and measures, the half-time derivative representation, and the bundle of support conclusions. Besides `Statements/`, `Assembly/` and `Theorems/`, the topics in `Proofs/` are the ambient case $`k=n+2`$ (`Ambient/`), density bridges (`DensityBridges/`), the envelope and Borel properties of graphs (`GraphEnvelope/`), high-pass estimates for BMO functions (`HighPass/`, `HighPassBracket/`), the beta-$`p`$ laws (`BetaPowLaws/`), covariance under similarities (`Similarity/`) and typed rectifiability under sums (`Rectifiability/`).
 
 ### Decomposition and the first main result
 
@@ -69,7 +69,7 @@ Counts are numbers of `.lean` files in the folder, including subfolders.
 
 ### Beta-p
 
-- [`BetaP/`](../ParabolicRectifiability/BetaP) (89): the beta-$p$ support theorem and its consequences. `Statements/`, `Assembly/` and `Theorems/` hold the statements and final theorems (`betaP_support_theorem` is in `Theorems/Main.lean`); the topics in `Proofs/` are `Laws/` (conventions and laws of $B_p$), `Comparison/` (comparison with the quadratic energy), `Packing/` (active-radius packing), `Localization/`, `Carrier/`, `Support/` and `Corollaries/` (graph enhancement, integrated rates, classification), and `Counterexamples/` (19 files), which constructs witnesses showing that implications fail outside the favorable exponent ranges.
+- [`BetaP/`](../ParabolicRectifiability/BetaP) (89): the beta-$`p`$ support theorem and its consequences. `Statements/`, `Assembly/` and `Theorems/` hold the statements and final theorems (`betaP_support_theorem` is in `Theorems/Main.lean`); the topics in `Proofs/` are `Laws/` (conventions and laws of $`B_p`$), `Comparison/` (comparison with the quadratic energy), `Packing/` (active-radius packing), `Localization/`, `Carrier/`, `Support/` and `Corollaries/` (graph enhancement, integrated rates, classification), and `Counterexamples/` (19 files), which constructs witnesses showing that implications fail outside the favorable exponent ranges.
 
 ### Examples
 

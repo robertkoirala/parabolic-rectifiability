@@ -6,12 +6,12 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
 A Lean 4 + mathlib formalization of decomposition and regular rectifiability
-results for measures on parabolic space $\mathbb R^n\times\mathbb R$, by Robert
+results for measures on parabolic space $`\mathbb R^n\times\mathbb R`$, by Robert
 Koirala. The library develops horizontal and regular vertical graph covers,
 square-energy (beta-number) criteria, a rectifiable Reifenberg decomposition of an
 arbitrary Radon measure, a canonical decomposition into horizontal, vertical
 and graph-pure parts, fifteen integral rectifiability criteria, a quantitative
-characterization by Carleson energies and uniform coverings, and beta-$p$
+characterization by Carleson energies and uniform coverings, and beta-$`p`$
 versions of the support theorem with their exponent restrictions.
 
 - **About 176,000 lines of Lean** in 957 modules, built on [mathlib](https://github.com/leanprover-community/mathlib4).
@@ -27,35 +27,52 @@ versions of the support theorem with their exponent restrictions.
 
 ## Setting
 
-The ambient space is $\mathbb R^n\times\mathbb R$ with the parabolic metric and
-dilations
+Parabolic space is $`\mathbb R^n\times\mathbb R`$`, `$`n\ge1`$, with the parabolic metric and dilations
 
-$$
-d_P((x,t),(y,s))=\max\{\lVert x-y\rVert,\sqrt{|t-s|}\},
-\qquad \delta_r(x,t)=(rx,r^2t).
-$$
+```math
+d_P\big((x,t),(y,s)\big)=\max\big\{|x-y|,\ |t-s|^{1/2}\big\},\qquad \delta_r(x,t)=(rx,\,r^2t).
+```
 
-Write $P(a,R)$ for an open parabolic ball and $\mathcal H_P^k$ for Hausdorff
-measure in this metric. The principal results concern $n\ge1$ and integer
-$1\le k\le n+2$. Horizontal models (affine spatial $k$-planes at a fixed time)
-are available for $1\le k\le n$; vertical models (affine spatial
-$(k-2)$-planes times all of time) for $2\le k\le n+2$. A fixed-family statement
-requires that family to be available.
+$`P(z,r)`$` is the open `$`d_P`$`-ball and `$`\mathcal H^k_P`$` the `$`k`$-dimensional Hausdorff measure of
+$`d_P`$`, for an integer `$`1\le k\le n+2`$`. All measures `$`\mu`$ are nonnegative and locally Radon
+(finite on compact sets and inner regular).
 
-For a measure $\mu$, a family $T$ of models, a center $z$ and a radius $r>0$,
-the beta number is
+**Model planes.** There are two families of $`k`$-dimensional planes:
 
-$$
-\beta_{\mu,T}^2(z,r)=r^{-k-2}\inf_{L}\int_{P(z,r)}d_P(w,L)^2\,d\mu(w),
-$$
+- $`\mathcal H`$` (horizontal): `$`V\times\{t\}`$` with `$`V`$` an affine `$`k`$`-plane of `$`\mathbb R^n`$`; nonempty for `$`1\le k\le n`$;
+- $`\mathcal V`$` (vertical): `$`W\times\mathbb R`$` with `$`W`$` an affine `$`(k-2)`$`-plane of `$`\mathbb R^n`$`; nonempty for `$`2\le k\le n+2`$.
 
-with no division by the mass of the ball, and the square energy is
-$S^R_{\mu,T}(z)=\int_0^R\beta_{\mu,T}^2(z,r)\,dr/r$ (the superscript is the scale endpoint, not an exponent). Both are computed from the
-whole source measure. Measures are nonnegative; "locally Radon" means finite on
-compact sets and inner regular. Densities are $\mu(P(z,r))/r^k$. The exact
-graph classes, including the half-time derivative and BMO conditions for
-regular vertical graphs, are part of the Lean definitions; see
-[docs/definitions.md](docs/definitions.md).
+A family $`T`$` is one of `$`\mathcal H`$`, `$`\mathcal V`$`, `$`\mathcal H\cup\mathcal V`$; a *given* family is one
+that is nonempty for the dimension $`k`$ under consideration.
+
+**Beta numbers and square energy.** For $`z\in\mathbb R^n\times\mathbb R`$` and `$`r>0`$,
+
+```math
+\beta_{\mu,T}(z,r)^2=\frac{1}{r^{k+2}}\inf_{L\in T}\int_{P(z,r)}d_P(w,L)^2\,d\mu(w),
+```
+
+normalized by $`r^{k+2}`$`, not by `$`\mu(P(z,r))`$`. The square energy up to scale `$`R>0`$ is
+
+```math
+S^R_{\mu,T}(z)=\int_0^R\beta_{\mu,T}(z,r)^2\,\frac{dr}{r}\ \in[0,\infty].
+```
+
+The superscript $`R`$ is the scale endpoint, not an exponent.
+
+**Densities.** The upper and lower $`k`$`-densities of `$`\mu`$` at `$`z`$ are
+
+```math
+\Theta^{k,*}(\mu,z)=\limsup_{r\to0}\frac{\mu(P(z,r))}{r^k},\qquad
+\Theta^{k}_{*}(\mu,z)=\liminf_{r\to0}\frac{\mu(P(z,r))}{r^k}.
+```
+
+**Graphs.** A horizontal graph of slope $`\varepsilon`$ is the graph, over a subset of a horizontal
+plane, of a normal displacement $`f`$` and a time `$`\tau`$ with
+$`\max\{|f(u)-f(v)|,\,|\tau(u)-\tau(v)|^{1/2}\}\le\varepsilon|u-v|`$. A regular vertical graph is the
+graph, over a vertical plane $`W\times\mathbb R`$, of a parabolic Lipschitz map whose half-time
+derivative $`\partial_t^{1/2}`$ lies in parabolic BMO, with Lipschitz constant plus BMO norm at most
+$`\varepsilon`$. These graph classes, and the resulting notions of horizontal and regular vertical
+rectifiability, are part of the Lean definitions; see [docs/definitions.md](docs/definitions.md).
 
 ## Formalized results
 
@@ -63,45 +80,48 @@ Every result listed here, and every other result in [docs/theorems.md](docs/theo
 is proved without `sorry` and uses only the axioms `propext`, `Classical.choice` and
 `Quot.sound`. Each statement is also restated in the [specification](verification/Spec.lean)
 and checked against the library with Comparator (see [Verifying](#verifying)).
-Unless noted, $n\ge1$, $1\le k\le n+2$, and $\mu$ is a locally Radon measure on
-$\mathbb R^n\times\mathbb R$.
+Unless noted, $`n\ge1`$, $`1\le k\le n+2`$, and $`\mu`$ is a locally Radon measure on
+$`\mathbb R^n\times\mathbb R`$.
 
-- [**Parabolic rectifiable Reifenberg theorem**](ParabolicRectifiability/Main.lean#L135): if
-  $\mu(P(0,1)\cap\{S^{2}_{\mu}>M\})\le\Gamma$, then $\mu=\mu_++\mu_H+\mu_V$, where $\mu_H$ and
-  $\mu_V$ are restrictions of $\mu$ with compact supports covered, at every tolerance, by
-  horizontal and regular vertical graphs (modulo $\mathcal H_P^k$-null sets), with content,
-  packing and tube bounds, and the remainder satisfies $\mu_+(P(0,1))\le C(n)M+\Gamma$. No
-  density, doubling or finite-mass assumption is made. Variants: a
+- [**Parabolic rectifiable Reifenberg theorem**](ParabolicRectifiability/Main.lean#L135): there is
+  $`C(n)`$` such that, if `$`M,\Gamma\ge0`$ and
+  $`\mu\big(P(0,1)\cap\{S^2_{\mu,\mathcal H\cup\mathcal V}>M\}\big)\le\Gamma`$, then
+  $`\mu=\mu_++\mu_{\mathcal H}+\mu_{\mathcal V}`$`, where `$`\mu_{\mathcal H}`$` and `$`\mu_{\mathcal V}`$ are
+  restrictions of $`\mu`$` whose supports are compact and, for every `$`\varepsilon>0`$, covered up to
+  $`\mathcal H^k_P`$-null sets by countably many horizontal, respectively regular vertical, graphs of
+  slope $`\varepsilon`$, with content, packing and tube bounds; the remainder satisfies
+  $`\mu_+(P(0,1))\le C(n)M+\Gamma`$. No density, doubling or finite-mass assumption is made.
+  Variants: a
   [version uniform over all families](ParabolicRectifiability/Main.lean#L88), the
-  [fixed-family version](ParabolicRectifiability/Main.lean#L157), the [ambient case $k=n+2$](ParabolicRectifiability/Main.lean#L164), the
-  [scaled version on any ball $P(a,R)$](ParabolicRectifiability/Enhancements/Theorems/ScalingRates.lean#L18),
+  [fixed-family version](ParabolicRectifiability/Main.lean#L157), the [ambient case $`k=n+2`$](ParabolicRectifiability/Main.lean#L164), the
+  [scaled version on any ball $`P(a,R)`$](ParabolicRectifiability/Enhancements/Theorems/ScalingRates.lean#L18),
   [graph-domain covers](ParabolicRectifiability/Enhancements/Theorems/GraphDomains.lean#L30),
   [density bounds](ParabolicRectifiability/Enhancements/Theorems/Density.lean#L35), and
   [power](ParabolicRectifiability/Enhancements/Theorems/ScalingRates.lean#L23) and
   [gauge](ParabolicRectifiability/Enhancements/Theorems/ScalingRates.lean#L29) energy rates.
-- [**Qualitative characterization**](ParabolicRectifiability/Characterization/Theorems/Main.lean#L31): for an available
-  family $T$, $\mu$ is regularly type-$T$ rectifiable if and only if $0<\Theta^{k,*}<\infty$ and
-  $S^R_{\mu,T}<\infty$ hold $\mu$-almost everywhere, for one (equivalently every) $R>0$; with the
+- [**Qualitative characterization**](ParabolicRectifiability/Characterization/Theorems/Main.lean#L31): for a given
+  family $`T`$, $`\mu`$ is regularly type-$`T`$ rectifiable if and only if $`0<\Theta^{k,*}<\infty`$ and
+  $`S^R_{\mu,T}<\infty`$ hold $`\mu`$-almost everywhere, for one (equivalently every) $`R>0`$; with the
   positive-upper/finite-lower density and intrinsic-source forms. Related results:
   [fifteen integral criteria](ParabolicRectifiability/IntegralCanonical/Theorems/Integral.lean#L36) (three source
   conditions, five integral tests), the [canonical decomposition](ParabolicRectifiability/IntegralCanonical/Theorems/Canonical.lean#L44)
   into horizontal rectifiable, regular vertical rectifiable and graph-pure parts (unique and
   independent of the energy endpoint), and [type separation](ParabolicRectifiability/IntegralCanonical/Theorems/Canonical.lean#L51).
 - [**Quantitative characterization**](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Characterization.lean#L24):
-  for $\mu\neq0$ with unbounded support that is $A$-Ahlfors regular at all scales, a finite mixed
+  for $`\mu\neq0`$ with unbounded support that is $`A`$-Ahlfors regular at all scales, a finite mixed
   square-energy Carleson bound is equivalent to absolute continuity with respect to
-  $\mathcal H_P^k$ together with uniform regular mixed coverings, with explicit forward and reverse
+  $`\mathcal H_P^k`$ together with uniform regular mixed coverings, with explicit forward and reverse
   constants. Related results: [measure approximants](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L22),
   the [local](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L26) and
   [bounded-support](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L30) versions, and the
-  [beta-$p$ Carleson comparison](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Characterization.lean#L31).
-- [**Beta-$p$ support theorem**](ParabolicRectifiability/BetaP/Theorems/Main.lean#L35): the decomposition holds with
-  remainder $C(n,p)M^{p/2}R^k+\Gamma$ for the energy $S_p$, $p\ge2$, and $C(n,p)MR^k+\Gamma$ for
-  $T_p$, $0<p\le2$. Related results: the [complete necessity/sufficiency classification](ParabolicRectifiability/BetaP/Theorems/Corollaries.lean#L145),
+  [beta-$`p`$ Carleson comparison](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Characterization.lean#L31).
+- [**Beta-$`p`$ support theorem**](ParabolicRectifiability/BetaP/Theorems/Main.lean#L35): the decomposition holds with
+  remainder $`C(n,p)M^{p/2}R^k+\Gamma`$ for the energy $`S_p`$, $`p\ge2`$, and $`C(n,p)MR^k+\Gamma`$ for
+  $`T_p`$, $`0<p\le2`$. Related results: the [complete necessity/sufficiency classification](ParabolicRectifiability/BetaP/Theorems/Corollaries.lean#L145),
   [sharpness of the integrated rates](ParabolicRectifiability/BetaP/Theorems/Corollaries.lean#L57), and
   [explicit witnesses](ParabolicRectifiability/BetaP/Theorems/Failures.lean#L55) for the failing exponent ranges.
 - **Examples**: a [lacunary graph](ParabolicRectifiability/Examples/Theorems/Lacunary.lean#L49) of positive finite
-  $\mathcal H_P^2$ measure, covered by ordinary graphs at every slope, whose measure is null on every
+  $`\mathcal H_P^2`$ measure, covered by ordinary graphs at every slope, whose measure is null on every
   regular vertical graph; [dense atomic sources](ParabolicRectifiability/Examples/Theorems/DensityExamples.lean#L27); and
   the [flat, diffuse and atomic density tests](ParabolicRectifiability/Examples/Theorems/DensityExamples.lean#L34).
 
@@ -183,7 +203,7 @@ what each check does and does not establish, are in
   integral criteria and canonical decomposition.
 - [`QuantitativeCharacterization`](ParabolicRectifiability/QuantitativeCharacterization): the
   quantitative characterization.
-- [`BetaP`](ParabolicRectifiability/BetaP): beta-$p$ theory; [`Examples`](ParabolicRectifiability/Examples):
+- [`BetaP`](ParabolicRectifiability/BetaP): beta-$`p`$ theory; [`Examples`](ParabolicRectifiability/Examples):
   examples and counterexamples.
 
 Each result area is organized as `Statements/` (the statements, as `Prop`-valued definitions),
@@ -201,6 +221,8 @@ folder. `verification/` holds the specification and the axiom audit, and `docs/`
 
 ## Citation
 
+Project metadata (scope, status, verification, AI use) is in [formalization.yaml](formalization.yaml).
+
 See [CITATION.cff](CITATION.cff). Please cite the tagged version of the
 software that you use.
 
@@ -209,3 +231,21 @@ software that you use.
 Apache-2.0; see [LICENSE](LICENSE) and [NOTICE](NOTICE). Dependencies retain
 their own licenses.
 
+## Author
+
+Robert Koirala. 
+
+## Acknowledgements
+
+The author thanks Yuan Liao and Ziyang Qin for their help with setting up the formalization, and especially
+Yuan Liao for guidance early on in the process, and Bennett Chow and Ruobing Zhang for their
+support and encouragement.
+
+## AI disclosure
+
+Claude and Codex were used in writing this library's Lean code and documentation. The
+formalization was directed by the author, who is responsible for the mathematics, the
+architecture of the library, and the review of its definitions and theorem statements. All
+proofs are machine-checked by Lean's kernel and independently by nanoda, every declaration is
+audited for axioms, and the statements are checked against the specification with Comparator
+(see [Verifying](#verifying)).

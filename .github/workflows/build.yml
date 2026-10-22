@@ -3,7 +3,21 @@ name: Build and axiom audit
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "formalization.yaml"
+      - "CITATION.cff"
+      - "LICENSE"
+      - "NOTICE"
   pull_request:
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - "formalization.yaml"
+      - "CITATION.cff"
+      - "LICENSE"
+      - "NOTICE"
   workflow_dispatch:
 
 permissions:
@@ -32,13 +46,22 @@ jobs:
           build: false
           use-mathlib-cache: true
 
+      # Restore the most recent build of this project, so that Lake recompiles only the
+      # modules whose inputs changed (it compares file hashes).
+      - name: Restore the previous build
+        uses: actions/cache/restore@v4
+        with:
+          path: .lake/build
+          key: lake-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-${{ github.sha }}
+          restore-keys: lake-${{ hashFiles('lean-toolchain', 'lake-manifest.json') }}-
+
       - name: Build
         run: lake build
 
       - name: Axiom audit
         run: lake env lean verification/AxiomAudit.lean
 
-      - name: Save the build for the Comparator workflow
+      - name: Save the build (for the next run and for the Comparator workflow)
         if: github.event_name != 'pull_request'
         uses: actions/cache/save@v4
         with:

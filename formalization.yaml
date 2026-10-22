@@ -1,0 +1,133 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Parabolic rectifiability"
+  description: >-
+    A Lean 4 and Mathlib formalization of rectifiability for measures on parabolic space
+    R^n x R with the parabolic metric. For an arbitrary locally Radon measure it proves a
+    parabolic rectifiable Reifenberg theorem: a weak-type bound on the square energy of
+    parabolic beta numbers yields a decomposition into pieces carried by horizontal and regular
+    vertical graphs, plus a remainder of controlled mass. It also proves a qualitative
+    characterization of regular rectifiability by densities and square energies, fifteen
+    integral criteria, a canonical decomposition into horizontal, regular vertical and graph-pure
+    parts, a quantitative characterization of Ahlfors regular measures by Carleson energies and
+    uniform coverings, and beta-p versions with their exponent ranges and counterexamples.
+  authors:
+    - "Robert Koirala"
+  responsible_maintainers:
+    - "Robert Koirala"
+  license: "Apache-2.0"
+
+classification:
+  arxiv: ["math.CA", "math.AP"]
+  msc2020: ["28A75", "28A78", "35K05"]
+
+sources:
+  - title: "Parabolic rectifiability (manuscript in preparation)"
+    authors:
+      - "Robert Koirala"
+    type: "article"
+    relationship: "formalizes"
+    author_endorsement: "participated"
+    note: "Unpublished; the formalization accompanies the author's own results. A link will be added when the manuscript is available."
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "claude-opus-5-5"
+        - "claude-sonnet-5-5"
+        - "gpt-6-astra"
+        - "gpt-6.1-sol"
+      framework: "Claude Code (Anthropic) and Codex (OpenAI)"
+      tool_setup: >-
+        Parallel agent sessions in separate git worktrees with builder and reviewer roles, one
+        coordinator, and a shared compiler gate (at most two Lean processes, one thread each).
+        Lean v4.35.0-rc4 and a pinned Mathlib revision. Statements were fixed before proofs were
+        distributed. Release checks: full build without warnings, an axiom audit of every
+        declaration, and leanprover/comparator against a Mathlib-only specification with nanoda.
+      cost:
+        wall_time: "about ten days in October 2026"
+        spend_usd: "not separately tracked (subscription accounts)"
+        hardware: "one 16 GB Apple-silicon Mac"
+      prompting_notes: >-
+        The author directed the formalization: the mathematics, the architecture of the library,
+        and the review of definitions and theorem statements.
+  spend_usd: "not separately tracked (subscription accounts)"
+  notes: >-
+    Lean code and documentation were written with Claude and Codex under the author's direction.
+    Lean's kernel checks every proof; the library has no sorry and no custom axiom. The
+    specification in verification/ states the checked results with deliberate sorry proofs,
+    which comparator checks against the library.
+
+status:
+  scope: >-
+    All results listed in docs/theorems.md are proved: the parabolic rectifiable Reifenberg
+    theorem and its fixed-family, ambient, scaled, graph-domain, density and rate versions; the
+    qualitative characterization, integral criteria and canonical decomposition; the quantitative
+    characterization; the beta-p support theorem, classification and counterexamples; and the
+    accompanying examples. 122 statements are checked with comparator against the specification
+    verification/Spec.lean, which imports only Mathlib.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "ParabolicRectifiability.rectifiable_reifenberg"
+      file: "ParabolicRectifiability/Main.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+    - declaration: "ParabolicRectifiability.Characterization.qualitative_characterization"
+      file: "ParabolicRectifiability/Characterization/Theorems/Main.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+    - declaration: "ParabolicRectifiability.IntegralCanonical.integral_criterion"
+      file: "ParabolicRectifiability/IntegralCanonical/Theorems/Integral.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+    - declaration: "ParabolicRectifiability.IntegralCanonical.canonical_decomposition"
+      file: "ParabolicRectifiability/IntegralCanonical/Theorems/Canonical.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+    - declaration: "ParabolicRectifiability.QuantitativeCharacterization.quantitative_characterization"
+      file: "ParabolicRectifiability/QuantitativeCharacterization/Theorems/Characterization.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+    - declaration: "ParabolicRectifiability.BetaP.betaP_support_theorem"
+      file: "ParabolicRectifiability/BetaP/Theorems/Main.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+
+fidelity:
+  divergences: >-
+    Conventions, stated in docs/overview.md and docs/theorems.md: measures are nonnegative and
+    locally Radon (finite on compact sets and inner regular); beta numbers are normalized by
+    r^(k+2), not by the mass of the ball; real parameters are compared with measures through
+    ENNReal.ofReal. In the rectifiable Reifenberg theorem the graph covers hold up to
+    Hausdorff-null sets that may carry mass of the measure, and the regular vertical class used
+    there is the constructed class (constant plus compactly supported part), which is contained in
+    the general class used by the other results.
+
+review:
+  status: "author-verified"
+  reviewers:
+    - "Robert Koirala"
+  notes: >-
+    The author reviewed the definitions and the theorem statements. Lean's kernel and nanoda check
+    the proofs, an axiom audit covers every declaration, and comparator checks the statements
+    against the specification. This is not external peer review.
+
+alignment:
+  namespace: "ParabolicRectifiability"
+  statements: "See docs/theorems.md: every checked result with links to its proof and to its statement in verification/Spec."
+
+acknowledgements: >-
+  The author thanks Yuan Liao and Ziyang Qin for their help with setting up the formalization, and especially
+  Yuan Liao for guidance early on in the process, and Bennett Chow and Ruobing Zhang for their
+  support and encouragement.

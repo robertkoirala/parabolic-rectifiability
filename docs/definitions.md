@@ -53,7 +53,6 @@ Source: [ParabolicRectifiability/Metric/Space.lean](../ParabolicRectifiability/M
 - [`Coordinates`](../ParabolicRectifiability/Metric/Space.lean#L20) (abbrev): Ordinary space-time coordinates, with the library product structures.
 - [`instMeasurableSpaceTime`](../ParabolicRectifiability/Metric/Space.lean#L22) (instance): The Borel sigma-algebra on the snowflaked time line.
 - [`coordinatesHomeomorph`](../ParabolicRectifiability/Metric/Space.lean#L27) (def): Forget the snowflaked time metric while preserving the topology.
-- Also in this module: 1 proved theorem(s) (instances or elementary facts, checked by Comparator against the specification copy).
 
 ### `ParabolicRectifiability.Metric.Measure`
 
@@ -64,13 +63,6 @@ Source: [ParabolicRectifiability/Metric/Measure.lean](../ParabolicRectifiability
 - [`fourierToParabolic`](../ParabolicRectifiability/Metric/Measure.lean#L44) (def): Map from analytic Euclidean coordinates to parabolic space.
 - [`coordinateDilationHomeomorph`](../ParabolicRectifiability/Metric/Measure.lean#L238) (def): Coordinate form of the parabolic dilation as a homeomorphism.
 - [`dilationHomeomorph`](../ParabolicRectifiability/Metric/Measure.lean#L244) (def): The invertible version of the existing parabolic dilation.
-- Also in this module: 1 proved theorem(s) (instances or elementary facts, checked by Comparator against the specification copy).
-
-### `ParabolicRectifiability.Metric.ProperSpace`
-
-Source: [ParabolicRectifiability/Metric/ProperSpace.lean](../ParabolicRectifiability/Metric/ProperSpace.lean). Specification copy: [verification/Spec/Metric/ProperSpace.lean](../verification/Spec/Metric/ProperSpace.lean).
-
-- Also in this module: 1 proved theorem(s) (instances or elementary facts, checked by Comparator against the specification copy).
 
 ### `ParabolicRectifiability.Metric.Hausdorff`
 
@@ -106,7 +98,6 @@ Source: [ParabolicRectifiability/Analysis/HalfTimeDerivative/Basic.lean](../Para
 - [`HalfTimeDerivative.weightedLinearMap`](../ParabolicRectifiability/Analysis/HalfTimeDerivative/Basic.lean#L137) (def): Linear-map form of multiplication by the half-time symbol on Schwartz functions.
 - [`HalfTimeDerivative.weightedLpCLM`](../ParabolicRectifiability/Analysis/HalfTimeDerivative/Basic.lean#L154) (def): The continuous complex-linear frequency weighting on the actual Schwartz topology.
 - [`HalfTimeDerivative.halfTimeDeriv`](../ParabolicRectifiability/Analysis/HalfTimeDerivative/Basic.lean#L172) (def): Half-time derivative on complex Schwartz tests, valued in L², using the inverse L² Fourier map.
-- Also in this module: 3 proved theorem(s) (instances or elementary facts, checked by Comparator against the specification copy).
 
 ### `ParabolicRectifiability.Analysis.HalfTimeDerivative.LocalRepresentation`
 
@@ -142,31 +133,15 @@ Source: [ParabolicRectifiability/Geometry/AdmissibleModels.lean](../ParabolicRec
 - [`VerticalModel`](../ParabolicRectifiability/Geometry/AdmissibleModels.lean#L32) (structure): An affine spatial plane times all time, with parabolic dimension `k`. Derived members: [`toSet`](../ParabolicRectifiability/Geometry/AdmissibleModels.lean#L102).
 - [`AdmissibleModel`](../ParabolicRectifiability/Geometry/AdmissibleModels.lean#L39) (abbrev): Tagged union of horizontal and vertical models of the same parabolic dimension.
 - [`FamilyKind`](../ParabolicRectifiability/Geometry/AdmissibleModels.lean#L42) (inductive): Choice of horizontal, vertical or mixed planes in a fitting problem.
-- [`Models`](../ParabolicRectifiability/Geometry/AdmissibleModels.lean#L48) (def): The actual type of fitting models for the selected family; unavailable dimensions give an empty type rather than a fictitious zero-rank model.
+- [`Models`](../ParabolicRectifiability/Geometry/AdmissibleModels.lean#L48) (def): The actual type of fitting models for the selected family; empty dimensions give an empty type rather than a fictitious zero-rank model.
 - [`AdmissibleModel.toSet`](../ParabolicRectifiability/Geometry/AdmissibleModels.lean#L155) (def): The represented subset of an admissible (horizontal or vertical) model.
 - [`modelSet`](../ParabolicRectifiability/Geometry/AdmissibleModels.lean#L196) (def): The represented set, uniformly across the three family choices.
-- Also in this module: 2 proved theorem(s) (instances or elementary facts, checked by Comparator against the specification copy).
 
 ### `ParabolicRectifiability.Geometry.ModelDistance`
 
 Source: [ParabolicRectifiability/Geometry/ModelDistance.lean](../ParabolicRectifiability/Geometry/ModelDistance.lean). Specification copy: [verification/Spec/Geometry/ModelDistance.lean](../verification/Spec/Geometry/ModelDistance.lean).
 
 - [`modelCost`](../ParabolicRectifiability/Geometry/ModelDistance.lean#L20) (def): Squared distance to the represented set in the parabolic metric.
-
-### `ParabolicRectifiability.Geometry.ModelSpace`
-
-Source: [ParabolicRectifiability/Geometry/ModelSpace.lean](../ParabolicRectifiability/Geometry/ModelSpace.lean). Specification copy: [verification/Spec/Geometry/ModelSpace.lean](../verification/Spec/Geometry/ModelSpace.lean).
-
-- [`SpatialParameters`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L16) (abbrev): Parameter space of affine spatial planes (projection data).
-- [`HorizontalParameters`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L17) (abbrev): Parameter space of horizontal models (plane parameters and time).
-- [`AffineSpatialPlane.parameters`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L22) (def): The projection parameters of an affine spatial plane.
-- [`AffineSpatialPlane.instTopologicalSpace`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L67) (instance): Topology on affine spatial planes induced by their parameters.
-- [`HorizontalModel.parameters`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L90) (def): The parameters of a horizontal model.
-- [`HorizontalModel.instTopologicalSpace`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L113) (instance): Topology on horizontal models induced by their parameters.
-- [`VerticalModel.parameters`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L136) (def): The parameters of a vertical model.
-- [`VerticalModel.instTopologicalSpace`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L165) (instance): Topology on vertical models induced by their parameters.
-- [`instTopologicalSpaceModels`](../ParabolicRectifiability/Geometry/ModelSpace.lean#L185) (instance): Topology on `Models n k T` for each family kind `T`.
-- Also in this module: 8 proved theorem(s) (instances or elementary facts, checked by Comparator against the specification copy).
 
 ### `ParabolicRectifiability.Geometry.SubspaceCoordinates`
 
@@ -213,15 +188,12 @@ Source: [ParabolicRectifiability/Measure/ScaleEnergy.lean](../ParabolicRectifiab
 - [`scaleMeasure`](../ParabolicRectifiability/Measure/ScaleEnergy.lean#L16) (def): Lebesgue measure on positive radii with exactly the density `1/r`.
 - [`squareEnergy`](../ParabolicRectifiability/Measure/ScaleEnergy.lean#L102) (def): The extended nonnegative scale integral of `betaSq` against `dr/r` on `0 < r < R`.
 - [`exceptionalSet`](../ParabolicRectifiability/Measure/ScaleEnergy.lean#L117) (def): Points in the open unit parabolic ball where the mixed-family energy of the original source, integrated over `0 < r < 2`, exceeds `ofReal M`.
-- [`exceptionalSource`](../ParabolicRectifiability/Measure/ScaleEnergy.lean#L131) (def): The original measure restricted to `exceptionalSet μ k M`.
-- Also in this module: 3 proved theorem(s) (instances or elementary facts, checked by Comparator against the specification copy).
 
 ### `ParabolicRectifiability.Measure.BetaLaws`
 
 Source: [ParabolicRectifiability/Measure/BetaLaws.lean](../ParabolicRectifiability/Measure/BetaLaws.lean). Specification copy: [verification/Spec/Measure/BetaLaws.lean](../verification/Spec/Measure/BetaLaws.lean).
 
 - [`rescaledSource`](../ParabolicRectifiability/Measure/BetaLaws.lean#L103) (def): The original source rescaled by its model dimension k, not ambient dimension.
-- Also in this module: 1 proved theorem(s) (instances or elementary facts, checked by Comparator against the specification copy).
 
 ## Foundations: classes of measures, graphs and densities
 
@@ -294,7 +266,7 @@ Source: [ParabolicRectifiability/Foundations/ADR.lean](../ParabolicRectifiabilit
 
 Source: [ParabolicRectifiability/Foundations/SupportBounds.lean](../ParabolicRectifiability/Foundations/SupportBounds.lean). Specification copy: [verification/Spec/Foundations/SupportBounds.lean](../verification/Spec/Foundations/SupportBounds.lean).
 
-- [`Foundations.HasRegularSupportBounds`](../ParabolicRectifiability/Foundations/SupportBounds.lean#L43) (structure): The bundle of support conclusions at center `a`, scale `R` and constant `C` for typed supports `K_H`, `K_V`: compactness, containment in the closed ball, empty supports for unavailable types, typed graph covers at every tolerance, and the global and local Hausdorff, separated-set, tube and packing bounds.
+- [`Foundations.HasRegularSupportBounds`](../ParabolicRectifiability/Foundations/SupportBounds.lean#L43) (structure): The bundle of support conclusions at center `a`, scale `R` and constant `C` for typed supports `K_H`, `K_V`: compactness, containment in the closed ball, empty supports for empty types, typed graph covers at every tolerance, and the global and local Hausdorff, separated-set, tube and packing bounds.
 
 ### `ParabolicRectifiability.Foundations.GraphDomainCover`
 
@@ -316,7 +288,7 @@ Source: [ParabolicRectifiability/Specifications/Rectifiability.lean](../Paraboli
 
 - [`RetainedSets`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L30) (structure): Retained Borel pieces of the original source inside the open unit ball. Derived members: [`horizontalMeasure`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L44), [`verticalMeasure`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L48), [`remainderMeasure`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L53), [`horizontalSupport`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L58), [`verticalSupport`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L63), [`supportUnion`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L68).
 - [`HasRectifiabilityContentBounds`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L80) (structure): Five quantitative bounds with one constant `C`: local `k`-dimensional Hausdorff measure, finite separated sets, ambient tubular volume, and finite or countable disjoint-ball packing with individually varying radii.
-- [`IsRectifiabilityDecomposition`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L106) (structure): The output of the rectifiable Reifenberg decomposition for retained sets `D`: the measure identity, the remainder bound `C M + Γ` in the unit ball, compact supports in the closed unit ball, vanishing for unavailable types, typed graph covers of the supports at every tolerance, and the content bounds. See [theorems.md](theorems.md) (Part I).
+- [`IsRectifiabilityDecomposition`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L106) (structure): The output of the rectifiable Reifenberg decomposition for retained sets `D`: the measure identity, the remainder bound `C M + Γ` in the unit ball, compact supports in the closed unit ball, vanishing for empty types, typed graph covers of the supports at every tolerance, and the content bounds. See [theorems.md](theorems.md) (Part I).
 - [`MainRectifiabilityStatement`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L127) (def): The mixed-family rectifiable Reifenberg statement: a constant `C(n)` is chosen before `k`, the source and the thresholds, and the retained sets are chosen before any graph tolerance. See [theorems.md](theorems.md) (item 3).
 - [`FixedFamilyRectifiabilityStatement`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L139) (def): The fixed-family rectifiable Reifenberg statement for a family `T`, with availability `Nonempty (Models n k T)` as a hypothesis and the opposite retained measure and support zero. See [theorems.md](theorems.md) (item 4).
 - [`AmbientRectifiabilityStatement`](../ParabolicRectifiability/Specifications/Rectifiability.lean#L152) (def): The ambient statement at `k = n + 2`: remainder zero in the unit ball, with no energy hypothesis. See [theorems.md](theorems.md) (item 5).
@@ -325,19 +297,6 @@ Source: [ParabolicRectifiability/Specifications/Rectifiability.lean](../Paraboli
 
 Source: [ParabolicRectifiability/Decomposition/Interfaces.lean](../ParabolicRectifiability/Decomposition/Interfaces.lean). Specification copy: [verification/Spec/Decomposition/Interfaces.lean](../verification/Spec/Decomposition/Interfaces.lean).
 
-- [`allScaleEnergy`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L18) (def): The natural square over every positive scale, with the same source.
-- [`thresholdGoodSet`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L23) (def): Family-specific good points in the original unit ball.
-- [`RespectsFamily`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L28) (def): The output assigned to the other testing type must vanish.
-- [`GoodSourceLocalization`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L33) (structure): Finite localization of the square-good part; the number of pieces is bounded before choosing the source and the threshold.
-- [`HorizontalCoreChart`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L51) (structure): An actual global spatial chart, restricted to a compact parameter set, with its possibly nonconstant time function on that set.
-- [`IsHorizontalCore`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L68) (def): The horizontal core: the input of the horizontal regularity theorem `horizontal_core_graph_cover`.
-- [`HasPositiveLowerDensity`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L74) (def): Positive lower density, expressed with explicit eventual radius bounds.
-- [`IsVerticalCore`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L81) (def): The actual Hausdorff source and density/square hypotheses of the regular vertical carrier `vertical_core_graph_cover`.
-- [`GeometricExtraction`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L93) (structure): The geometric extraction output.
-- [`HasMetricContentBounds`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L114) (structure): Equal-radius content bounds.
-- [`HasUniformLowerMass`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L127) (def): A concrete all-radius lower bound for the unchanged restricted source.
-- [`DensityRefinement`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L134) (structure): Density refinement of the geometric carrier, with its own source loss.
-- [`CompactTypedPieces`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L145) (structure): Actual compact approximants, selected using the source measure before choosing any graph tolerance.
 - [`HasFamilyDecomposition`](../ParabolicRectifiability/Decomposition/Interfaces.lean#L171) (def): The family-specific rectifiable Reifenberg output: retained sets `D` with `IsRectifiabilityDecomposition` and the opposite type vanishing for a fixed family.
 
 ### `ParabolicRectifiability.Enhancements.Decomposition`
@@ -491,16 +450,16 @@ Definitions used by the statements of the other checked results (examples, beta-
 
 ### `BetaP.Statements.Laws`
 
-- [`BetaP.BetaPowAnnulusStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L79): Finite annuli: for an available family and a locally Radon source, both scale integrands have finite integral over every positive finite annulus `(u,v)`, `0 < u < v`, at every centre.
+- [`BetaP.BetaPowAnnulusStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L79): Finite annuli: for a given family and a locally Radon source, both scale integrands have finite integral over every positive finite annulus `(u,v)`, `0 < u < v`, at every centre.
 - [`BetaP.BetaPowClampingStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L145): Density-free clamping comparisons: `B_2 ≤ 2^{2-p} B_p` for `0 < p ≤ 2` and `B_p ≤ 2^{p-2} B_2` for `2 ≤ p`, at every centre and radius, for every family and every source;
 - [`BetaP.BetaPowHolderStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L132): Hölder with the density factor.
-- [`BetaP.BetaPowMeasurabilityStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L57): Borel measurability: for an available family and a locally Radon source, `(z,r) ↦ B_p(z,r)` is jointly Borel, and `S_p^a`, `T_p^a` are Borel in the centre for every positive endpoint.
+- [`BetaP.BetaPowMeasurabilityStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L57): Borel measurability: for a given family and a locally Radon source, `(z,r) ↦ B_p(z,r)` is jointly Borel, and `S_p^a`, `T_p^a` are Borel in the centre for every positive endpoint.
 - [`BetaP.BetaPowRescalingStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L99): Dilation law: for `μ^{q,R} = R^{-k}(z ↦ δ_{1/R}(z-q))_# μ`, which is the existing `rescaledSource μ k q R hR` (the point `δ_{1/R}(z-q)` is `similarity q R hR z`), `B_{p,μ^{q,R}}(δ_{1/R}(z-q), s) = …
-- [`BetaP.BetaPowRestrictionStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L67): Restriction: for an available family, `B_p`, `S_p^a` and `T_p^a` decrease when the source is restricted to any set.
+- [`BetaP.BetaPowRestrictionStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L67): Restriction: for a given family, `B_p`, `S_p^a` and `T_p^a` decrease when the source is restricted to any set.
 - [`BetaP.BetaPowSmulStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L90): Amplitude law of the fitting quantity: `B_{p,cμ} = c B_{p,μ}` for a real `c > 0`, at every centre and radius, for every family.
-- [`BetaP.BetaPowZeroSourceStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L114): Zero source: for an available family the zero source has `B_p = 0` and zero energies `S_p^a = T_p^a = 0`.
+- [`BetaP.BetaPowZeroSourceStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L114): Zero source: for a given family the zero source has `B_p = 0` and zero energies `S_p^a = T_p^a = 0`.
 - [`BetaP.EmptyTestingBallStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L39): Empty testing ball: for a nonempty family, a testing ball of zero source mass has `B_p = 0`.
-- [`BetaP.UnavailableFamilyStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L48): Unavailable family: for an empty family `B_p = +∞` at every positive radius and `S_p^a = T_p^a = +∞` at every positive endpoint, for every source.
+- [`BetaP.UnavailableFamilyStatement`](../ParabolicRectifiability/BetaP/Statements/Laws.lean#L48): Empty family: for an empty family `B_p = +∞` at every positive radius and `S_p^a = T_p^a = +∞` at every positive endpoint, for every source.
 
 ### `BetaP.Statements.Main`
 
@@ -524,10 +483,10 @@ Definitions used by the statements of the other checked results (examples, beta-
 
 ### `Characterization.Statements.Branches`
 
-- [`Characterization.FiniteHausdorffCriterionStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L47): **Finite-Hausdorff criterion.**  First clause: for `n ≥ 1`, `1 ≤ k ≤ n + 2`, an available family `T`, and a Borel `E` with `H_P^k(E) < ∞`, put `η = H_P^k⌊E`.
+- [`Characterization.FiniteHausdorffCriterionStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L47): **Finite-Hausdorff criterion.**  First clause: for `n ≥ 1`, `1 ≤ k ≤ n + 2`, a given family `T`, and a Borel `E` with `H_P^k(E) < ∞`, put `η = H_P^k⌊E`.
 - [`Characterization.GraphSourceStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L84): **Graph-source finiteness.**  For `n ≥ 1` and `1 ≤ k ≤ n + 2`: for every individual horizontal subset graph of finite slope (arbitrary domain) and every individual full general regular vertical …
-- [`Characterization.IntrinsicSufficiencyStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L64): **Intrinsic sufficiency.**  For `n ≥ 1`, `1 ≤ k ≤ n + 2`, an available family `T` and a locally Radon `μ` with `μ ≪ H_P^k` and a Borel sigma-finite `H_P^k` carrier: if `S^R_{μ,T} < ∞` `μ`-a.e.
-- [`Characterization.NecessityStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L108): **Necessity.**  For `n ≥ 1`, `1 ≤ k ≤ n + 2`, an available family `T` and a locally Radon `μ` that is regularly `k`-rectifiable in the finite-norm definition with graphs of type `T`: `μ` has a …
+- [`Characterization.IntrinsicSufficiencyStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L64): **Intrinsic sufficiency.**  For `n ≥ 1`, `1 ≤ k ≤ n + 2`, a given family `T` and a locally Radon `μ` with `μ ≪ H_P^k` and a Borel sigma-finite `H_P^k` carrier: if `S^R_{μ,T} < ∞` `μ`-a.e.
+- [`Characterization.NecessityStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L108): **Necessity.**  For `n ≥ 1`, `1 ≤ k ≤ n + 2`, a given family `T` and a locally Radon `μ` that is regularly `k`-rectifiable in the finite-norm definition with graphs of type `T`: `μ` has a …
 - [`Characterization.TypedRefinementMeasureStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L159): **Typed refinement, measure version.**  For `n ≥ 1`, `1 ≤ k ≤ n + 2` and a locally Radon, regularly rectifiable `μ` (finite-norm mixed definition), there are disjoint Borel source pieces `E_H, …
 - [`Characterization.TypedRefinementSetStatement`](../ParabolicRectifiability/Characterization/Statements/Branches.lean#L126): **Typed refinement, set version.**  For `n ≥ 1`, `1 ≤ k ≤ n + 2` and a Borel `E` with `η = H_P^k⌊E` finite (`H_P^k(E) < ∞`) and `S^1_{η,𝒜_k} < ∞` `η`-a.e., there are Borel sets `E_H, E_V ⊆ E`, …
 
@@ -538,7 +497,7 @@ Definitions used by the statements of the other checked results (examples, beta-
 - [`Characterization.GoodDominationStatement`](../ParabolicRectifiability/Characterization/Statements/SourceTransfer.lean#L99): **Good-set domination.** Under the reference hypotheses (`IsADRCarrier k c C Γ σ`), let `ν` be a finite Borel measure carried by `Γ` and `A > 0`.
 - [`Characterization.RadonApproximationStatement`](../ParabolicRectifiability/Characterization/Statements/SourceTransfer.lean#L57): **Radon approximation.** Let `λ` be a locally finite Radon measure (finite on compacts and inner regular) on `X` or on a closed subspace of `X` (the space `Y` with closed isometric embedding `e`), …
 - [`Characterization.ReplacementStatement`](../ParabolicRectifiability/Characterization/Statements/SourceTransfer.lean#L119): **Bad-region replacement.** There are constants `C₀, C₁ > 0` depending only on `k, c, C` such that, under the reference hypotheses and for `ν` and `A` as in `GoodDominationStatement`, with `Ω_A = …
-- [`Characterization.SourceTransferStatement`](../ParabolicRectifiability/Characterization/Statements/SourceTransfer.lean#L146): **ADR source transfer.** Under the reference hypotheses (`IsADRCarrier k c C Γ σ`), let `T` be an available fixed horizontal or vertical model family, or their mixed family (`Nonempty (Models n k …
+- [`Characterization.SourceTransferStatement`](../ParabolicRectifiability/Characterization/Statements/SourceTransfer.lean#L146): **ADR source transfer.** Under the reference hypotheses (`IsADRCarrier k c C Γ σ`), let `T` be a given fixed horizontal or vertical model family, or their mixed family (`Nonempty (Models n k …
 
 ### `Decomposition.ZeroThresholdAndAmbientBranches`
 
@@ -577,7 +536,7 @@ Definitions used by the statements of the other checked results (examples, beta-
 
 - [`Enhancements.GaugeRateProperty`](../ParabolicRectifiability/Enhancements/Statements/ScalingRates.lean#L133): The gauge rate with core constant `C₀`: for `1 ≤ k ≤ n+2`, locally Radon `μ`, `a ∈ X`, `R > 0`, and a gauge `Φ : [0,∞] → [0,∞]` that is nondecreasing, Borel and finite on finite inputs, with `Λ_Φ …
 - [`Enhancements.GaugeRateStatement`](../ParabolicRectifiability/Enhancements/Statements/ScalingRates.lean#L156): **Gauge rate and an approximated numerical infimum.** As for the power rate, `C₀` is one constant per `n` for which the scaled threshold decomposition holds, chosen before `k`, `μ`, `a`, `R`, `Φ`, …
-- [`Enhancements.PowerRateProperty`](../ParabolicRectifiability/Enhancements/Statements/ScalingRates.lean#L90): The power-energy rate with core constant `C₀`:  * for `1 ≤ k ≤ n+2`, locally Radon `μ`, `a ∈ X`, `R > 0`, the mixed family or an available fixed family `T` (the available fixed-family version with …
+- [`Enhancements.PowerRateProperty`](../ParabolicRectifiability/Enhancements/Statements/ScalingRates.lean#L90): The power-energy rate with core constant `C₀`:  * for `1 ≤ k ≤ n+2`, locally Radon `μ`, `a ∈ X`, `R > 0`, the mixed family or a given fixed family `T` (the given fixed-family version with …
 - [`Enhancements.PowerRateStatement`](../ParabolicRectifiability/Enhancements/Statements/ScalingRates.lean#L114): **Power-energy rate, including zero energy.**  Here `C₀` is the unchanged core threshold constant, independent of `q`: for each `n ≥ 1` there is one `C₀ > 0`, chosen before `k`, `μ`, `a`, `R`, `T` …
 
 ### `Examples.DenseAtoms`
@@ -689,7 +648,7 @@ Definitions used by the statements of the other checked results (examples, beta-
 
 ### `Foundations.Statements.Measurability`
 
-- [`Foundations.AnnulusBoundStatement`](../ParabolicRectifiability/Foundations/Statements/Measurability.lean#L70): The finite-annulus bound: for an available family, a locally Radon source and `0 < a < b < ∞`, `∫_a^b b_{μ,T}(z,r) dr/r ≤ a^{-k} μ(closed P(z,b)) log(b/a) < ∞`.
+- [`Foundations.AnnulusBoundStatement`](../ParabolicRectifiability/Foundations/Statements/Measurability.lean#L70): The finite-annulus bound: for a given family, a locally Radon source and `0 < a < b < ∞`, `∫_a^b b_{μ,T}(z,r) dr/r ≤ a^{-k} μ(closed P(z,b)) log(b/a) < ∞`.
 - [`Foundations.BetaEnergyDominationStatement`](../ParabolicRectifiability/Foundations/Statements/Measurability.lean#L57): Domination: if `ν ≤ c μ` with a real `c > 0`, then `b_ν ≤ c b_μ` at every centre and positive radius, and `S_ν^R ≤ c S_μ^R` at every centre and positive endpoint.
 - [`Foundations.BetaPowTwoStatement`](../ParabolicRectifiability/Foundations/Statements/Measurability.lean#L116): Compatibility with `p = 2`: at `p = 2` the beta-`p` fitting quantity is literally the natural `betaSq`, at every centre, radius and family (both vanish at nonpositive radii).
 - [`Foundations.DensityMeasurabilityStatement`](../ParabolicRectifiability/Foundations/Statements/Measurability.lean#L38): Density part of the measurability clause: for a locally Radon source both densities are Borel functions of the centre.
@@ -773,7 +732,7 @@ Definitions used by the statements of the other checked results (examples, beta-
 
 ### `QuantitativeCharacterization.Statements.Characterization`
 
-- [`QuantitativeCharacterization.BetaPowCarlesonComparisonStatement`](../ParabolicRectifiability/QuantitativeCharacterization/Statements/Characterization.lean#L96): **The beta-`p` comparison.** On the global `A`-ADR class of the quantitative characterization, with `M_{S_p}`, `M_{T_p}` the root energies of the mixed-family beta-`p` energies of the whole source: 1.
+- [`QuantitativeCharacterization.BetaPowCarlesonComparisonStatement`](../ParabolicRectifiability/QuantitativeCharacterization/Statements/Characterization.lean#L96): **The beta-`p` comparison.** On the global `A`-ADR class of the quantitative characterization, with `M_{S_p}`, `M_{T_p}` the root energies of the mixed-family beta-`p` energies of the source: 1.
 - [`QuantitativeCharacterization.BetaPowForwardBounds`](../ParabolicRectifiability/QuantitativeCharacterization/Statements/Characterization.lean#L78): The forward clause of the beta-`p` comparison for given constants `L₀` and `C`: on the global `A`-ADR class, finiteness of `M_{S_p}` (`p ≥ 2`) or of `M_{T_p}` (`0 < p ≤ 2`) gives `M_β < ∞` and the …
 
 ### `QuantitativeCharacterization.Statements.Geometry`
