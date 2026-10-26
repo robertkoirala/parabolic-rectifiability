@@ -20,7 +20,7 @@ project:
   license: "Apache-2.0"
 
 classification:
-  arxiv: ["math.CA", "math.AP"]
+  arxiv: ["math.CA", "math.AP", "math.DG"]
   msc2020: ["28A75", "28A78", "35K05"]
 
 sources:
