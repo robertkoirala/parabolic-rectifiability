@@ -235,7 +235,35 @@ Fix `n ≥ 1`, `1 ≤ k ≤ n + 2` and `A ≥ 1`. Consider locally Radon `μ ≠
 
 Here $`(K,L)`$-quantitative mixed rectifiability means $`\mu\ll\mathcal H_P^k`$ and, for every $`a\in\mathrm{supp}\mu`$ and $`R>0`$, a nonempty set of [`RegularMixedCovering k K L μ a R`](../ParabolicRectifiability/QuantitativeCharacterization/Coverings.lean#L83): a countable family of typed $`L`$-references (horizontal, vertical or ambient) with balls $`P(a_i,R_i)\subset P(a,LR)`$ centered on the support and meeting the reference carrier, root packing $`\sum R_i^k\le KR^k`$, local packing $`\sum_{a_i\in P(b,s),R_i\le s}R_i^k\le Ks^k`$, a bad set of $`d\mu\thinspace dr/r`$-mass at most $`KR^k`$, and scale sets $`\mathcal U_i`$ that together with the bad set partition $`(P(a,R)\cap\mathrm{supp}\mu)\times(0,R)`$ modulo $`d\mu\thinspace dr/r`$, with $`\mathcal U_i\subset\lbrace L^{-1}\mathrm{dist}(z,\Gamma_i)\le r<R_i\rbrace`$.
 
-Remarks. The constants $`L_0,C`$ are chosen before the measure and the covering may depend on the root. Absolute continuity is part of the definition of quantitative rectifiability; a covering alone does not provide it. The Ahlfors bounds hold at every support center and every positive radius. The statement concerns the mixed family only, and all beta numbers use the whole original measure with no division by ball mass.
+Remarks. The constants $`L_0,C`$ are chosen before the measure and the covering may depend on the root. Absolute continuity is part of the definition of quantitative rectifiability; a covering alone does not provide it. The Ahlfors bounds hold at every support center and every positive radius; for bounded support see `bounded_support` below. The statement concerns the mixed family only, and all beta numbers use the whole original measure with no division by ball mass.
+
+### `QuantitativeCharacterization.bounded_support`
+
+Statement in the specification: [`verification/Spec/QuantitativeCharacterization/Theorems/Approximants.lean`](../verification/Spec/QuantitativeCharacterization/Theorems/Approximants.lean#L155).
+
+Proof: [QuantitativeCharacterization/Theorems/Approximants.lean#L30](../ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L30). Statement: [`BoundedSupportStatement`](../ParabolicRectifiability/QuantitativeCharacterization/Statements/Approximants.lean#L155), with body [`BoundedSupportBounds`](../ParabolicRectifiability/QuantitativeCharacterization/Statements/Approximants.lean#L112).
+
+Fix `k ≥ 1` and `A ≥ 1`. There is $`C_1=C(A,k)>0`$ such that for every `n ≥ 1` with `k ≤ n + 2` there are $`L_0\ge1`$ and $`C\ge1`$, depending on $`(n,k,A)`$, with the following property. Let $`\mu\neq0`$ be locally Radon with bounded support of diameter $`D>0`$, such that $`\mu(P(z,r))\le Ar^k`$ for every $`z\in\mathrm{supp}\mu`$ and $`r>0`$, and $`A^{-1}r^k\le\mu(P(z,r))`$ for every $`z\in\mathrm{supp}\mu`$ and $`0<r\le D`$. Then:
+
+1. the three clauses of part 1 of `quantitative_characterization` hold, with the same definitions of $`M_\beta`$ and of quantitative rectifiability (all roots $`R>0`$);
+2. for all $`L,K\ge1`$, every root $`P_0=P(a,R)`$ with $`a\in\mathrm{supp}\mu`$, $`R>0`$, and every `RegularMixedCovering k K L μ a R`, there are disjoint Borel sets $`F_H,F_V\subset P_0`$, each inside the traces $`P_i\cap\Gamma_i`$ of its type and carrying $`\mu\llcorner P_0`$, such that, writing $`m`$ for the number of covering balls containing a point, $`\mu^N_T=\mu\llcorner(F_T\cap\lbrace m\le N\rbrace)`$ and $`e^N=\mu\llcorner(P_0\cap\lbrace m>N\rbrace)`$, for every `N`: $`\mu\llcorner P_0=\mu^N_H+\mu^N_V+e^N`$; if $`R\le D`$, $`e^N(P_0)\le2\exp(-N/((2^k+A^2)K))\mu(P_0)`$; at every radius, $`e^N(P_0)\le C_1R^k\exp(-N/(C_1K))`$; and the approximants have the canonical limits of `measure_approximants`;
+3. if $`M_\beta(\mu)<\infty`$, at every root there is a $`(C(1+M_\beta(\mu)),L_0)`$ covering with typed sets, the measure identity and the relative tail;
+4. if $`\mu`$ is $`(K,L_0)`$-quantitatively rectifiable, at every root there is a $`(CK,L_0)`$ covering with typed sets, the measure identity and the relative tail.
+
+Remarks. The constant $`C_1`$ depends only on $`A`$ and $`k`$. Finite Carleson energy is not assumed in clause 2. The hypothesis $`D>0`$ follows from the others: since $`k\ge1`$, the upper bound excludes atoms. By `quantitative_common_constants`, the constants $`L_0,C`$ can be taken equal to those of `quantitative_characterization`.
+
+### `QuantitativeCharacterization.uniform_local`
+
+Statement in the specification: [`verification/Spec/QuantitativeCharacterization/Theorems/Approximants.lean`](../verification/Spec/QuantitativeCharacterization/Theorems/Approximants.lean#L151).
+
+Proof: [QuantitativeCharacterization/Theorems/Approximants.lean#L26](../ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L26). Statement: [`UniformLocalStatement`](../ParabolicRectifiability/QuantitativeCharacterization/Statements/Approximants.lean#L93), with forward body [`LocalForwardBounds`](../ParabolicRectifiability/QuantitativeCharacterization/Statements/Approximants.lean#L63).
+
+Fix `n ≥ 1` and `1 ≤ k ≤ n + 2`.
+
+1. Forward. For every `A ≥ 1` there are $`B_{\rm loc},L_0,C\ge1`$, depending on $`(n,k,A)`$, such that the following holds for every locally Radon $`\mu`$, every $`a\in\mathrm{supp}\mu`$, $`R>0`$ and $`M\ge0`$. If $`A^{-1}s^k\le\mu(P(b,s))\le As^k`$ and $`\int_{P(b,s)}S^s_{\mu,\rm mix}\thinspace d\mu\le Ms^k`$ for every $`b\in\mathrm{supp}\mu\cap P(a,B_{\rm loc}R)`$ and $`0<s\le B_{\rm loc}R`$, then there is a `RegularMixedCovering k (C(1+M)) L₀ μ a R` with typed sets $`F_H,F_V`$, the measure identity, the relative tail $`e^N(P_0)\le2\exp(-N/((2^k+A^2)C(1+M)))\mu(P_0)`$, and, for every `N`, $`\mu^N_H`$ horizontally and $`\mu^N_V`$ regularly vertically rectifiable.
+2. Converse. For every `L ≥ 1` there is $`B_{\rm rev}(n,k,L)\ge1`$, independent of `A`, and for every `A ≥ 1` a constant $`C(n,k,A,L)>0`$, such that the following holds for every locally Radon $`\mu`$, $`a\in\mathrm{supp}\mu`$, $`R>0`$ and $`K\ge1`$. If there is a `RegularMixedCovering k K L μ a R` and $`\mu(P(b,s))\le As^k`$ for $`b\in\mathrm{supp}\mu\cap P(a,B_{\rm rev}R)`$ and $`0<s\le B_{\rm rev}R`$, then $`\int_{P(a,R)}S^R_{\mu,\rm mix}\thinspace d\mu\le CKR^k`$.
+
+Remarks. No identification of the approximants with the canonical parts is asserted in the local version. By `quantitative_common_constants`, $`L_0,C`$ can be taken equal to those of `quantitative_characterization`, together with one choice of $`B_{\rm loc}`$.
 
 ### Further results
 

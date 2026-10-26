@@ -118,12 +118,16 @@ $`\mathbb R^n\times\mathbb R`$.
   into horizontal rectifiable, regular vertical rectifiable and graph-pure parts (unique and
   independent of the energy endpoint), and [type separation](ParabolicRectifiability/IntegralCanonical/Theorems/Canonical.lean#L51).
 - [**Quantitative characterization**](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Characterization.lean#L24):
-  for $`\mu\neq0`$ with unbounded support that is $`A`$-Ahlfors regular at all scales, a finite mixed
-  square-energy Carleson bound is equivalent to absolute continuity with respect to
-  $`\mathcal H_P^k`$ together with uniform regular mixed coverings, with explicit forward and reverse
-  constants. Related results: [measure approximants](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L22),
-  the [local](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L26) and
-  [bounded-support](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L30) versions, and the
+  for $`\mu\neq0`$ that is $`A`$-Ahlfors regular, a finite mixed square-energy Carleson bound is
+  equivalent to absolute continuity with respect to $`\mathcal H_P^k`$ together with uniform regular
+  mixed coverings, with explicit forward and reverse constants. This holds both for unbounded
+  support, with the Ahlfors bounds at all scales, and for
+  [bounded support](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L30),
+  with the lower Ahlfors bound only up to the diameter of the support, with the
+  [same constants](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L40).
+  Related results: [measure approximants](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L22),
+  a [local version](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Approximants.lean#L26) in which the
+  Ahlfors and Carleson bounds are assumed only on a fixed multiple of a ball and up to its radius, and the
   [beta-p Carleson comparison](ParabolicRectifiability/QuantitativeCharacterization/Theorems/Characterization.lean#L31).
 - [**Beta-p support theorem**](ParabolicRectifiability/BetaP/Theorems/Main.lean#L35): the decomposition holds with
   remainder $`C(n,p)M^{p/2}R^k+\Gamma`$ for the energy $`S_p`$, $`p\ge2`$, and $`C(n,p)MR^k+\Gamma`$ for

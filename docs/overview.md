@@ -154,6 +154,10 @@ below), $`n\ge1`$ and $`1\le k\le n+2`$.
    support, a regular mixed covering with packing constants $`K`$. The covering
    constant is bounded by $`C(1+M_\beta)`$ and $`M_\beta\le CK`$, with a reverse
    bound $`M_\beta\le C_{\rm rev}K`$ for every value $`L\ge1`$ of the second covering parameter.
+   `QuantitativeCharacterization.bounded_support` gives the same equivalence and bounds, with the
+   same constants, for bounded support, where the lower Ahlfors bound is required only up to the
+   diameter of the support, and `QuantitativeCharacterization.uniform_local` is a local version
+   with Ahlfors and Carleson bounds only on a fixed multiple of a ball and up to its radius.
 
 Enhancements and beta-$`p`$.
 
